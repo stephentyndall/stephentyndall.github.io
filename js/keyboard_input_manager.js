@@ -76,6 +76,18 @@ KeyboardInputManager.prototype.listen = function () {
 	}//end A key random move
 
 
+    // Z key plays randomly until the game is over
+	if (!modifiers && event.which == 90){
+		// random number from 0-3, then prevent default, self.emit...
+		while (true){
+			mapped = Math.floor((Math.random()*4));
+			event.preventDefault();
+			self.emit("move", mapped);
+		}
+	}//end A key random move
+
+
+
 
   });
 
@@ -90,7 +102,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
-        event.targetTouches > 1) {
+        event.targetTouches === 2) {
     	//return; // Ignore if touching with more than 1 finger
 	//if the user touches the screen with two fingers, play randomly
 	mapped = Math.floor((Math.random()*4));
