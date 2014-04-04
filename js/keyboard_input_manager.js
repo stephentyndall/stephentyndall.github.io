@@ -77,14 +77,14 @@ KeyboardInputManager.prototype.listen = function () {
 
 
     // Z key plays randomly until the game is over
-	if (!modifiers && event.which == 90){
+/*	if (!modifiers && event.which == 90){
 		// random number from 0-3, then prevent default, self.emit...
 		while (true){
 			mapped = Math.floor((Math.random()*4));
 			event.preventDefault();
 			self.emit("move", mapped);
 		}
-	}//end A key random move
+	}//end A key random move*/
 
 
 
