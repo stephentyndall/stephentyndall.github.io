@@ -76,6 +76,7 @@ KeyboardInputManager.prototype.listen = function () {
 	}//end A key random move
 
 
+	//broke something somehow
     // Z key plays randomly until the game is over
 /*	if (!modifiers && event.which == 90){
 		// random number from 0-3, then prevent default, self.emit...
