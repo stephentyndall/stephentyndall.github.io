@@ -91,7 +91,12 @@ KeyboardInputManager.prototype.listen = function () {
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
         event.targetTouches > 1) {
-      return; // Ignore if touching with more than 1 finger
+    	//return; // Ignore if touching with more than 1 finger
+	//if the user touches the screen with two fingers, play randomly
+	mapped = Math.floor((Math.random()*4));
+	event.preventDefault();
+	self.emit("move", mapped);
+		
     }
 
     if (window.navigator.msPointerEnabled) {
