@@ -43,10 +43,10 @@ KeyboardInputManager.prototype.listen = function () {
     76: 1, // Vim right
     74: 2, // Vim down
     72: 3, // Vim left
-    87: 0, // W
-    68: 1, // D
-    83: 2, // S
-    65: 3  // A
+    //87: 0, // W
+    //68: 1, // D
+    //83: 2, // S
+    //65: 3  // A
   };
 
   // Respond to direction keys
@@ -66,6 +66,17 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers && event.which === 82) {
       self.restart.call(self, event);
     }
+
+    // A key makes a random move
+	if (!modifiers && event.which == 65){
+		// random number from 0-3, then prevent default, self.emit...
+		mapped = Math.floor((Math.random()*4));
+		event.preventDefault();
+		self.emit("move", mapped);
+	}//end A key random move
+
+
+
   });
 
   // Respond to button presses
